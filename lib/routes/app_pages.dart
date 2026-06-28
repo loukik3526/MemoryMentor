@@ -3,6 +3,8 @@ import '../bindings/splash_binding.dart';
 import '../views/dashboard/dashboard_binding.dart';
 import '../views/dashboard/dashboard_view.dart';
 import '../views/login/login_view.dart';
+import '../views/main/main_binding.dart';
+import '../views/main/main_view.dart';
 import '../views/onboarding/onboarding_view.dart';
 import '../views/splash/splash_view.dart';
 import 'app_routes.dart';
@@ -26,6 +28,11 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginView(),
+    ),
+    GetPage(
+      name: AppRoutes.main,
+      page: () => const MainView(),
+      binding: MainBinding(),
     ),
     GetPage(
       name: AppRoutes.dashboard,

@@ -42,7 +42,7 @@ class LoginView extends StatelessWidget {
               PrimaryButton(
                 text: "Sign In",
                 onPressed: () {
-                  Get.offNamed(AppRoutes.dashboard);
+                  Get.offNamed(AppRoutes.main);
                 },
               ),
               SizedBox(height: 3.5.h),
