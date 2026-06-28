@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_constants.dart';
 
@@ -10,22 +11,22 @@ class QuickActions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Quick Actions',
           style: TextStyle(
             color: AppColors.textPrimary,
-            fontSize: 18,
+            fontSize: 14.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: AppConstants.space16),
+        SizedBox(height: 2.h),
         GridView.count(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           mainAxisSpacing: AppConstants.space16,
           crossAxisSpacing: AppConstants.space16,
-          childAspectRatio: 1.5,
+          childAspectRatio: 1.3,
           children: [
             _ActionCard(
               title: 'Upload PDF',
@@ -84,14 +85,14 @@ class _ActionCard extends StatelessWidget {
               Icon(
                 icon,
                 color: AppColors.primary,
-                size: 28,
+                size: 24.sp,
               ),
-              const SizedBox(height: AppConstants.space8),
+              SizedBox(height: 1.h),
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textPrimary,
-                  fontSize: 14,
+                  fontSize: 10.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),

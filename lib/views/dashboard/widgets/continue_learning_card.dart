@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_constants.dart';
 
@@ -8,7 +9,7 @@ class ContinueLearningCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppConstants.space20),
+      padding: EdgeInsets.all(AppConstants.space20),
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: AppConstants.borderRadiusLg,
@@ -17,65 +18,66 @@ class ContinueLearningCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Continue Learning',
             style: TextStyle(
               color: AppColors.textSecondary,
-              fontSize: 14,
+              fontSize: 10.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: AppConstants.space16),
-          const Text(
+          SizedBox(height: 1.5.h),
+          Text(
             'Flutter State Management',
             style: TextStyle(
               color: AppColors.textPrimary,
-              fontSize: 18,
+              fontSize: 14.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: AppConstants.space12),
+          SizedBox(height: 1.h),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: ClipRRect(
                   borderRadius: AppConstants.borderRadiusSm,
                   child: LinearProgressIndicator(
                     value: 0.72,
-                    minHeight: 6,
+                    minHeight: 0.8.h,
                     backgroundColor: AppColors.border,
-                    valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                    valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
                   ),
                 ),
               ),
-              const SizedBox(width: AppConstants.space12),
+              SizedBox(width: 3.w),
               Text(
                 '72% Complete',
                 style: TextStyle(
-                  color: AppColors.primary.withOpacity(0.9),
-                  fontSize: 12,
+                  color: AppColors.primary,
+                  fontSize: 9.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: AppConstants.space20),
+          SizedBox(height: 2.h),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
-                foregroundColor: AppColors.onPrimary,
-                padding: const EdgeInsets.symmetric(vertical: AppConstants.space16),
+                foregroundColor: AppColors.white,
+                padding: EdgeInsets.symmetric(vertical: 1.5.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: AppConstants.borderRadiusMd,
                 ),
                 elevation: 0,
               ),
-              child: const Text(
+              child: Text(
                 'Continue',
                 style: TextStyle(
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),

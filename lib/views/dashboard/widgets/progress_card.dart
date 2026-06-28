@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_constants.dart';
 
@@ -8,7 +9,7 @@ class ProgressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppConstants.space20),
+      padding: EdgeInsets.all(AppConstants.space20),
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: AppConstants.borderRadiusLg,
@@ -20,11 +21,11 @@ class ProgressCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 "Today's Progress",
                 style: TextStyle(
                   color: AppColors.textSecondary,
-                  fontSize: 14,
+                  fontSize: 10.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -32,20 +33,29 @@ class ProgressCard extends StatelessWidget {
                 "72%",
                 style: TextStyle(
                   color: AppColors.primary,
-                  fontSize: 16,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: AppConstants.space16),
+          SizedBox(height: 1.5.h),
           ClipRRect(
             borderRadius: BorderRadius.circular(AppConstants.radiusFull),
-            child: const LinearProgressIndicator(
+            child: LinearProgressIndicator(
               value: 0.72,
-              minHeight: 8,
+              minHeight: 0.8.h,
               backgroundColor: AppColors.border,
-              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+            ),
+          ),
+          SizedBox(height: 1.5.h),
+          Text(
+            "You're doing great! Keep your streak alive.",
+            style: TextStyle(
+              color: AppColors.textTertiary,
+              fontSize: 9.sp,
+              fontStyle: FontStyle.italic,
             ),
           ),
         ],

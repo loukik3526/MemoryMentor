@@ -19,90 +19,78 @@ class RecentSessions extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppConstants.space16),
-        _SessionTile(
-          title: 'Flutter Widgets',
-          time: '2 hours ago',
-          icon: Icons.flutter_dash,
-        ),
-        const SizedBox(height: AppConstants.space12),
-        _SessionTile(
-          title: 'Data Structures',
-          time: 'Yesterday',
-          icon: Icons.code,
-        ),
-        const SizedBox(height: AppConstants.space12),
-        _SessionTile(
-          title: 'Networking Basics',
-          time: '2 days ago',
-          icon: Icons.lan,
+        Container(
+          padding: const EdgeInsets.all(AppConstants.space16),
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: AppConstants.borderRadiusLg,
+            border: Border.all(color: AppColors.border),
+          ),
+          child: Column(
+            children: const [
+              _SessionItem(title: 'Flutter Widgets'),
+              Divider(color: AppColors.border, height: AppConstants.space24),
+              _SessionItem(title: 'Data Structures'),
+              Divider(color: AppColors.border, height: AppConstants.space24),
+              _SessionItem(title: 'Networking Basics'),
+            ],
+          ),
         ),
       ],
     );
   }
 }
 
-class _SessionTile extends StatelessWidget {
+class _SessionItem extends StatelessWidget {
   final String title;
-  final String time;
-  final IconData icon;
 
-  const _SessionTile({
-    required this.title,
-    required this.time,
-    required this.icon,
-  });
+  const _SessionItem({required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(AppConstants.space16),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: AppConstants.borderRadiusMd,
-        border: Border.all(color: AppColors.border),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(AppConstants.space8),
-            decoration: BoxDecoration(
-              color: AppColors.primaryContainer,
-              borderRadius: AppConstants.borderRadiusSm,
-            ),
-            child: Icon(
-              icon,
-              color: AppColors.primary,
-              size: 20,
-            ),
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(AppConstants.space8),
+          decoration: BoxDecoration(
+            color: AppColors.primaryContainer,
+            borderRadius: AppConstants.borderRadiusSm,
           ),
-          const SizedBox(width: AppConstants.space16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: AppColors.textPrimary,
-                    fontWeight: FontWeight.w600,
-                  ),
+          child: const Icon(
+            Icons.check_circle_outline_rounded,
+            color: AppColors.primary,
+            size: 20,
+          ),
+        ),
+        const SizedBox(width: AppConstants.space16),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: AppColors.textPrimary,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
                 ),
-                Text(
-                  time,
-                  style: const TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 12,
-                  ),
+              ),
+              const Text(
+                'Completed',
+                style: TextStyle(
+                  color: AppColors.textSecondary,
+                  fontSize: 12,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          const Icon(
-            Icons.chevron_right,
-            color: AppColors.textTertiary,
-          ),
-        ],
-      ),
+        ),
+        const Icon(
+          Icons.chevron_right_rounded,
+          color: AppColors.textTertiary,
+          size: 20,
+        ),
+      ],
     );
   }
 }

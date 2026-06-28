@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../routes/app_routes.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_constants.dart';
@@ -40,7 +41,9 @@ class LoginView extends StatelessWidget {
               SizedBox(height: 3.5.h),
               PrimaryButton(
                 text: "Sign In",
-                onPressed: () {},
+                onPressed: () {
+                  Get.offNamed(AppRoutes.dashboard);
+                },
               ),
               SizedBox(height: 3.5.h),
               const DividerText(
