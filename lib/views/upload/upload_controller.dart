@@ -1,10 +1,14 @@
+import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 class UploadController extends GetxController {
   final RxString selectedFileName = "".obs;
   final RxString selectedFileSize = "".obs;
   final RxString selectedFilePath = "".obs;
+  final RxString extractedText = "".obs;
+  final RxInt pageCount = 0.obs;
 
   Future<void> pickFile() async {
     try {
@@ -35,9 +39,37 @@ class UploadController extends GetxController {
     selectedFileName.value = "";
     selectedFileSize.value = "";
     selectedFilePath.value = "";
+    extractedText.value = "";
+    pageCount.value = 0;
   }
 
-  void uploadAndAnalyze() {
-    // Logic for uploading and analyzing the PDF
+  Future<void> uploadAndAnalyze() async {
+    if (selectedFilePath.value.isEmpty) {
+      Get.snackbar(
+        "No File Selected",
+        "Please select a PDF file first to analyze.",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    try {
+      final File file = File(selectedFilePath.value);
+      final List<int> bytes = await file.readAsBytes();
+      
+      final PdfDocument document = PdfDocument(inputBytes: bytes);
+      pageCount.value = document.pages.count;
+      
+      final PdfTextExtractor extractor = PdfTextExtractor(document);
+      extractedText.value = extractor.extractText();
+      
+      document.dispose();
+    } catch (e) {
+      Get.snackbar(
+        "Error",
+        "Failed to extract text: $e",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 }
