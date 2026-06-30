@@ -11,8 +11,8 @@ class MainController extends GetxController {
   final RxInt selectedIndex = 0.obs;
 
   final List<Widget> pages = [
-    const DashboardView(),
     const ChatView(),
+    const DashboardView(),
     const MemoryView(),
     const QuizView(),
     const ProfileView(),

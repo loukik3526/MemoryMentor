@@ -15,66 +15,78 @@ class ChatInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.space16,
-        vertical: AppConstants.space12,
+      padding: const EdgeInsets.fromLTRB(
+        AppConstants.space16,
+        AppConstants.space12,
+        AppConstants.space16,
+        AppConstants.space24,
       ),
-      decoration: BoxDecoration(
-        color: AppColors.background,
-        border: const Border(
-          top: BorderSide(color: AppColors.divider),
-        ),
-      ),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.add_circle_outline_rounded,
-              color: AppColors.textSecondary,
-              size: 28,
+      color: AppColors.background,
+      child: Container(
+        height: 60,
+        padding: const EdgeInsets.symmetric(horizontal: AppConstants.space8),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: AppColors.border.withOpacity(0.8)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
-          ),
-          const SizedBox(width: AppConstants.space8),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppConstants.space16),
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(AppConstants.radiusXl),
-                border: Border.all(color: AppColors.border),
+          ],
+        ),
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.add_circle_outline,
+                color: AppColors.textSecondary,
+                size: 22,
               ),
+            ),
+            Expanded(
               child: TextField(
                 controller: controller,
-                style: const TextStyle(color: AppColors.textPrimary),
-                decoration: const InputDecoration(
-                  hintText: "Type a message...",
-                  hintStyle: TextStyle(color: AppColors.textDisabled),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: AppConstants.space12),
+                style: const TextStyle(
+                  color: AppColors.textPrimary,
+                  fontSize: 16,
                 ),
-                maxLines: null,
-                keyboardType: TextInputType.multiline,
+                decoration: const InputDecoration(
+                  hintText: "Ask Memory Mentor...",
+                  hintStyle: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  border: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(horizontal: AppConstants.space8),
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: AppConstants.space12),
-          GestureDetector(
-            onTap: onSend,
-            child: Container(
-              padding: const EdgeInsets.all(AppConstants.space10),
-              decoration: const BoxDecoration(
-                color: AppColors.primary,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.send_rounded,
-                color: AppColors.white,
-                size: 24,
+            const SizedBox(width: AppConstants.space8),
+            GestureDetector(
+              onTap: onSend,
+              child: Container(
+                width: 44,
+                height: 44,
+                decoration: const BoxDecoration(
+                  color: AppColors.primary,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_upward_rounded,
+                  color: AppColors.white,
+                  size: 24,
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 4),
+          ],
+        ),
       ),
     );
   }

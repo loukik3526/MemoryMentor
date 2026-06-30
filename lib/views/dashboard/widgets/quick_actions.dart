@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_constants.dart';
+import '../../upload/upload_view.dart';
 
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
@@ -31,7 +33,9 @@ class QuickActions extends StatelessWidget {
             _ActionCard(
               title: 'Upload PDF',
               icon: Icons.upload_file_rounded,
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const UploadView());
+              },
             ),
             _ActionCard(
               title: 'Ask AI',
