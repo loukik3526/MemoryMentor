@@ -49,13 +49,13 @@ class LoginView extends StatelessWidget {
               const DividerText(
                 text: "or continue with",
               ),
-              SizedBox(height: 3.h),
+              SizedBox(height: 3.5.h),
               SocialLoginButton(
                 text: "Continue with Google",
                 asset: AppAssets.google,
                 onPressed: () {},
               ),
-              SizedBox(height: 4.h),
+              SizedBox(height: 2.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

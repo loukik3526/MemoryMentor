@@ -25,7 +25,7 @@ class ProgressCard extends StatelessWidget {
                 "Today's Progress",
                 style: TextStyle(
                   color: AppColors.textSecondary,
-                  fontSize: 10.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -33,7 +33,7 @@ class ProgressCard extends StatelessWidget {
                 "72%",
                 style: TextStyle(
                   color: AppColors.primary,
-                  fontSize: 12.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -54,7 +54,7 @@ class ProgressCard extends StatelessWidget {
             "You're doing great! Keep your streak alive.",
             style: TextStyle(
               color: AppColors.textTertiary,
-              fontSize: 9.sp,
+              fontSize: 14.sp,
               fontStyle: FontStyle.italic,
             ),
           ),

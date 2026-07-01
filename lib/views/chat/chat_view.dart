@@ -25,9 +25,10 @@ class ChatView extends GetView<ChatController> {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       itemCount: controller.messages.length,
                       itemBuilder: (context, index) {
+                        final message = controller.messages[index];
                         return MessageBubble(
-                          message: controller.messages[index],
-                          isUser: true,
+                          message: message["text"] ?? "",
+                          isUser: message["role"] == "user",
                         );
                       },
                     ),

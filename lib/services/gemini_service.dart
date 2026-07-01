@@ -140,4 +140,36 @@ $text
       return [];
     }
   }
+
+  Future<String> askQuestion({
+    required String documentText,
+    required String userQuestion,
+  }) async {
+    try {
+      final prompt = """
+You are Memory Mentor, an expert AI study tutor.
+
+Answer the user's question ONLY using the provided study material.
+
+If the answer cannot be found inside the material, clearly say that the uploaded document does not contain that information.
+
+Keep answers educational, concise and easy to understand.
+
+Study Material:
+
+$documentText
+
+Question:
+
+$userQuestion
+""";
+
+      final content = [Content.text(prompt)];
+      final response = await _model.generateContent(content);
+
+      return response.text ?? 'No response generated.';
+    } catch (e) {
+      return 'Error asking question: $e';
+    }
+  }
 }

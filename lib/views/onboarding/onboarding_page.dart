@@ -44,7 +44,7 @@ class OnboardingPage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: AppColors.textSecondary,
-              fontSize: 12.sp,
+              fontSize: 16.sp,
             ),
           ),
           const Spacer(),

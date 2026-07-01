@@ -21,7 +21,7 @@ class DashboardHeader extends StatelessWidget {
                   'Good Evening 👋',
                   style: TextStyle(
                     color: AppColors.textSecondary,
-                    fontSize: 14.sp,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -30,7 +30,7 @@ class DashboardHeader extends StatelessWidget {
                   'Loukik',
                   style: TextStyle(
                     color: AppColors.textPrimary,
-                    fontSize: 24.sp,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -56,7 +56,7 @@ class DashboardHeader extends StatelessWidget {
           'Ready to continue learning?',
           style: TextStyle(
             color: AppColors.textSecondary,
-            fontSize: 12.sp,
+            fontSize: 15.sp,
           ),
         ),
       ],

@@ -22,7 +22,7 @@ class ContinueLearningCard extends StatelessWidget {
             'Continue Learning',
             style: TextStyle(
               color: AppColors.textSecondary,
-              fontSize: 10.sp,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -31,7 +31,7 @@ class ContinueLearningCard extends StatelessWidget {
             'Flutter State Management',
             style: TextStyle(
               color: AppColors.textPrimary,
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -51,10 +51,10 @@ class ContinueLearningCard extends StatelessWidget {
               ),
               SizedBox(width: 3.w),
               Text(
-                '72% Complete',
+                '72%',
                 style: TextStyle(
                   color: AppColors.primary,
-                  fontSize: 9.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -77,7 +77,7 @@ class ContinueLearningCard extends StatelessWidget {
               child: Text(
                 'Continue',
                 style: TextStyle(
-                  fontSize: 11.sp,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),

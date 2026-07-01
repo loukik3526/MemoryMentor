@@ -17,7 +17,7 @@ class QuickActions extends StatelessWidget {
           'Quick Actions',
           style: TextStyle(
             color: AppColors.textPrimary,
-            fontSize: 14.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -96,7 +96,7 @@ class _ActionCard extends StatelessWidget {
                 title,
                 style: TextStyle(
                   color: AppColors.textPrimary,
-                  fontSize: 10.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
