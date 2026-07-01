@@ -10,12 +10,12 @@ import 'main_controller.dart';
 class MainBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MainController>(() => MainController());
-    Get.lazyPut<DashboardController>(() => DashboardController());
-    Get.lazyPut<ChatController>(() => ChatController());
-    Get.lazyPut<MemoryController>(() => MemoryController());
-    Get.lazyPut<QuizController>(() => QuizController());
-    Get.lazyPut<ProfileController>(() => ProfileController());
-    Get.lazyPut<UploadController>(() => UploadController());
+    Get.put(MainController(), permanent: true);
+    Get.put(DashboardController(), permanent: true);
+    Get.put(ChatController(), permanent: true);
+    Get.put(MemoryController(), permanent: true);
+    Get.put(QuizController(), permanent: true);
+    Get.put(ProfileController(), permanent: true);
+    Get.put(UploadController(), permanent: true);
   }
 }

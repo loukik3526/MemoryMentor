@@ -26,6 +26,8 @@ class UploadView extends GetView<UploadController> {
                 final fileSize = controller.selectedFileSize.value;
                 final hasFile = fileName.isNotEmpty;
                 final extractedText = controller.extractedText.value;
+                final isAnalyzing = controller.isAnalyzing.value;
+                final aiSummary = controller.aiSummary.value;
 
                 return Column(
                   children: [
@@ -42,16 +44,86 @@ class UploadView extends GetView<UploadController> {
                       const SizedBox(height: AppConstants.space32),
                       PrimaryButton(
                         text: "Analyze PDF",
-                        onPressed: controller.uploadAndAnalyze,
+                        onPressed: isAnalyzing ? null : controller.uploadAndAnalyze,
+                        isLoading: isAnalyzing,
                       ),
-                      if (extractedText.isNotEmpty) ...[
+                      if (extractedText.isNotEmpty && !isAnalyzing) ...[
                         const SizedBox(height: AppConstants.space32),
                         _buildAnalysisResult(),
+                      ],
+                      if (isAnalyzing) ...[
+                        const SizedBox(height: AppConstants.space48),
+                        const CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                        ),
+                        const SizedBox(height: AppConstants.space24),
+                        const Text(
+                          "Analyzing your study material...",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColors.textSecondary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                      if (aiSummary.isNotEmpty && !isAnalyzing) ...[
+                        const SizedBox(height: AppConstants.space32),
+                        _buildAiSummaryCard(aiSummary),
                       ],
                     ],
                   ],
                 );
               }),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAiSummaryCard(String summary) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(AppConstants.space20),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: AppConstants.borderRadiusLg,
+        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withOpacity(0.1),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Text("🤖", style: TextStyle(fontSize: 24)),
+              SizedBox(width: AppConstants.space12),
+              Text(
+                "AI Summary",
+                style: TextStyle(
+                  color: AppColors.textPrimary,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppConstants.space16),
+          const Divider(color: AppColors.border),
+          const SizedBox(height: AppConstants.space16),
+          Text(
+            summary,
+            style: const TextStyle(
+              color: AppColors.textPrimary,
+              fontSize: 15,
+              height: 1.6,
             ),
           ),
         ],

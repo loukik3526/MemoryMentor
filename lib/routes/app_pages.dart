@@ -39,5 +39,11 @@ abstract class AppPages {
       page: () => const DashboardView(),
       binding: DashboardBinding(),
     ),
+    GetPage(
+      name: AppRoutes.main,
+      page: () => const MainView(),
+      binding: MainBinding(),
+    ),
+
   ];
 }

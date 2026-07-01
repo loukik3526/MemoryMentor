@@ -28,9 +28,16 @@ class MemoryView extends GetView<MemoryController> {
           const SizedBox(height: AppConstants.space16),
           Expanded(
             child: Obx(() {
-              // Assuming controller has 'memories' RxList
               if (controller.memories.isEmpty) {
-                return const EmptyMemory();
+                return const Center(
+                  child: Text(
+                    "No memories generated yet.",
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 16,
+                    ),
+                  ),
+                );
               }
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: AppConstants.space16),
