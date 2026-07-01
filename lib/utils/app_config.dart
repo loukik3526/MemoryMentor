@@ -1,3 +1,3 @@
 class AppConfig {
-  static const String geminiApiKey = 'Your key';
+  static const String geminiApiKey = 'your key';
 }
